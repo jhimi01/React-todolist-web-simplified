@@ -1,13 +1,21 @@
+import { useState } from 'react'
 import './style.css'
 function App() {
+
+  const [newItem, setNewItem] = useState('')
+  const [todos, setTodos] = useState([])
  
+  const handeleSubmit=(e)=>{
+    e.preventDefault();
+  }
+
 
   return (
   <>
-     <form className='new-item-form'>
+     <form onSubmit={handeleSubmit} className='new-item-form'>
    <div className="form-row">
    <label htmlFor='item'>New Item</label>
-    <input type="text" name="" id="item"  />
+    <input type="text" value={newItem} onChange={(e)=>{setNewItem(e.target.value)}} id="item"  />
    </div>
    <button className='btn'>Add</button>
    </form>

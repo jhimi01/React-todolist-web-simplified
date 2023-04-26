@@ -49,6 +49,7 @@ function App() {
    </form>
    <h1 className="header">To do list</h1>
    <ul className="list">
+   {todos.length === 0 && <p style={{color: 'gray'}}>No Todos</p>}
    {todos.map(todo =>  <li key={todo.id}>
       <label>
         <input type="checkbox" checked={todo.complete} onChange={e => toggleTodo(todo.id, e.target.checked)}/>
